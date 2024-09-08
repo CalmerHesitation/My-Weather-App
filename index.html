@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <title>My Weather App</title>
+  </head>
+
+  <body>
+    <div class="weatherApp">
+      <header>
+        <form class="searchForm" id="searchForm">
+          <input
+            type="search"
+            placeholder="Enter a City..."
+            required
+            class="searchFormInput"
+            id="searchFormInput"
+          />
+          <input type="submit" value="Search" class="searchFormButton" />
+        </form>
+      </header>
+      <main>
+        <div class="weatherAppData">
+          <div>
+            <h1 class="weatherAppCity" id="city"></h1>
+            <p class="weatherAppDetails">
+              <span id="time"> Monday 14:43 </span>,
+              <span id="description"> broken clouds </span><br />
+              Humidity: <strong id="humidity"> 61% </strong>, Wind:
+              <strong id="windSpeed"> 5.66km/h </strong>
+            </p>
+          </div>
+          <div class="weatherAppContainer">
+            <div id="weatherIcon">
+              <img
+                src="https://cdn-icons-png.flaticon.com/128/9546/9546618.png"
+                class="weatherAppIcon"
+              />
+            </div>
+            <div class="weatherAppTemp" id="temperature"></div>
+            <div class="weatherAppUnit">℃</div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        This weather app was coded by
+        <a href="https://github.com/CalmerHesitation/" target="_blank">
+          Masego Mo
+        </a>
+        is
+        <a
+          href="https://github.com/CalmerHesitation/My-WeatherApp"
+          target="_blank"
+        >
+          open-sourced on GitHub</a
+        >
+        and hosted on Netlify
+      </footer>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
