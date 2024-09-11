@@ -88,6 +88,37 @@ main {
   margin-top: 6px;
 }
 
+.weatherForecast {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.weatherForecastDate {
+  text-align: center;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.weatherForecastIcon {
+  font-size: 38px;
+  text-align: center;
+}
+
+.weatherForecastTemperatures {
+  text-align: center;
+  color: #39c9ff;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.weatherForecastTemperature {
+  padding: 0 10px;
+}
+
 footer {
   border-top: 1px solid #39c9ff;
   padding: 30px 0 0 0;
