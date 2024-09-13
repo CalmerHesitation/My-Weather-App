@@ -16,6 +16,8 @@ function updateWeather(response) {
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
   weatherIconElement.innerHTML = `<img src = "${response.data.condition.icon_url}" class="weatherAppIcon" />`;
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -41,7 +43,7 @@ function formatDate(date) {
 
 function searchCity(city) {
   let apiKey = "e30to1ab37b3986111e09fa174072f0d";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updateWeather);
 }
 
@@ -54,7 +56,15 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "e30to1ab37b3986111e09fa174072f0d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
@@ -62,14 +72,14 @@ function displayForecast() {
     forecastHtml =
       forecastHtml +
       `
-      <div class="weather-forecast-day">
-        <div class="weather-forecast-date">${day}</div>
-        <div class="weather-forecast-icon">🌤️</div>
-        <div class="weather-forecast-temperatures">
-          <div class="weather-forecast-temperature">
-            <strong>15º</strong>
+      <div class="weatherForecastDay">
+        <div class="weatherForecastDate">${day}</div>
+        <div class="weatherForecastIcon">🌤️</div>
+        <div class="weatherForecastTemperatures">
+          <div class="weatherForecastTemperature">
+            <strong>15°</strong>
           </div>
-          <div class="weather-forecast-temperature">9º</div>
+          <div class="weatherForecastTemperature">9°</div>
         </div>
       </div>
     `;
@@ -83,4 +93,3 @@ let searchFormElement = document.querySelector("#searchForm");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Paris");
-displayForecast();
