@@ -103,7 +103,7 @@ main {
 }
 
 .weatherForecastIcon {
-  font-size: 38px;
+  width: 75px;
   text-align: center;
 }
 
